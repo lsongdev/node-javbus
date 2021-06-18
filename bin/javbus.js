@@ -19,6 +19,12 @@ const commands = {
       console.log(pad(show.id), show.name);
     }
   },
+  async search(keyword) {
+    const list = await javbus.search(keyword);
+    for (const show of list) {
+      console.log(pad(show.id), show.name);
+    }
+  },
   async show(id) {
     const show = await javbus.show(id);
     console.log();
@@ -51,7 +57,8 @@ const commands = {
     console.log(` ${pkg.name}@${pkg.version}`);
     console.log();
     console.log(' - ls');
-    console.log(' - show [id]');
+    console.log(' - search <keyword>');
+    console.log(' - show <id>');
     console.log(' - help');
   }
 };

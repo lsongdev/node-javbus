@@ -1,10 +1,10 @@
 {
-  "name": "javbus",
-  "version": "0.0.5",
+  "name": "node-javbus",
+  "version": "0.0.6",
   "description": "simple javbus api in node.js",
   "main": "index.js",
   "bin": {
-    "node-javbus": "./bin/javbus.js"
+    "javbus": "./bin/javbus.js"
   },
   "scripts": {
     "test": "node test"
@@ -15,7 +15,7 @@
   "author": "Lsong",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.3"
+    "cheerio": "latest"
   },
   "directories": {
     "test": "test"
