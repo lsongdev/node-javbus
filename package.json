@@ -1,6 +1,6 @@
 {
   "name": "node-javbus",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "simple javbus api in node.js",
   "main": "index.js",
   "bin": {

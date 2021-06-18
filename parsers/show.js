@@ -1,10 +1,13 @@
 
+const www = 'https://www.javbus.com';
+
 module.exports = $ => {
   const movie = $('.movie');
   const stars = $('.star-box img', movie).map((i, star) => {
+    const img = $(star).attr('src');
     return {
       name: $(star).attr('title'),
-      avatar: $(star).attr('src'),
+      avatar: img.indexOf('http') === 0 ? img : www + img,
     }
   }).get()
   const [gid] = $('body')
@@ -20,7 +23,7 @@ module.exports = $ => {
     gid,
     stars,
     title: $('h3').text(),
-    cover: $('img', movie).attr('src'),
+    cover: www + $('img', movie).attr('src'),
     genre: $('.info .genre a', movie).map((i, x) => $(x).text()).get(),
     images: $('#sample-waterfall a').map((i, anchor) => $(anchor).attr('href')).get(),
   };
@@ -31,7 +34,7 @@ module.exports = $ => {
     const key = line
       .substr(0, idx)
       .replace(/\s+/, '_')
-      .toLowerCase()
+      .toLowerCase();
     const value = line
       .substring(idx + 1)
       .trim()

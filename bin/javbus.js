@@ -37,9 +37,13 @@ const commands = {
     console.log(pad('Release Date', 15), show.release_date);
     console.log();
     console.log('==== images ====');
-    console.log();
     for (const image of show.images) {
       console.log(image);
+    }
+    console.log();
+    console.log('==== stars ====');
+    for (const star of show.stars) {
+      console.log(star.name, star.avatar);
     }
     console.log();
     const files = await javbus.magnet(show.gid);

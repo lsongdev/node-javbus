@@ -1,13 +1,16 @@
 
+const innerText = x =>
+  x.children[0].data;
+
 module.exports = $ => {
   const list = [];
   $('#waterfall > .item').each(function (i, item) {
-    var info = $('.photo-info > span', item).get(0);
-    var date = $('date', info);
+    const info = $('.photo-info > span', item).get(0);
+    const [id, date] = $('date', info);
     list.push({
-      id: date[0].children[0].data,
-      date: date[1].children[0].data,
-      name: info.children[0].data,
+      id: innerText(id),
+      date: innerText(date),
+      name: innerText(info),
       img: $('img', item).attr('src')
     });
   });
