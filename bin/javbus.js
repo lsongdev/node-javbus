@@ -27,6 +27,9 @@ const commands = {
   },
   async show(id) {
     const show = await javbus.show(id);
+    if (args.includes('--magnet')) {
+      show.files = await javbus.magnet(show.gid);
+    }
     if (args.includes('--json')) {
       const text = JSON.stringify(show, null, 2);
       process.stdout.write(text);
