@@ -27,6 +27,12 @@ const commands = {
   },
   async show(id) {
     const show = await javbus.show(id);
+    if (args.includes('--json')) {
+      const text = JSON.stringify(show, null, 2);
+      process.stdout.write(text);
+      return;
+    }
+
     console.log();
     console.log(show.title);
     console.log(show.cover);
